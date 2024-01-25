@@ -1,0 +1,66 @@
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	/*color: #312797;*/
+	line-height: 1.3;
+}
+
+.application-wrapper {
+	padding-top: 3rem;
+}
+
+.loader {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 7rem;
+  border: 1rem solid #f3f3f3;
+  border-radius: 50%;
+  /*border-top: 1rem solid #312797;*/
+  border-top: 1rem solid #ffe4b2;
+  width: 8rem;
+  height: 8rem;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+.patience-please {
+	color: chocolate;
+	font-size: 0.7rem;
+	margin-left: auto;
+	margin-right: auto;
+	width: 5rem;
+	padding-top: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+	align-self: center;
+	/*font-size: 0.8rem;
+	padding-left: 0.5rem;*/
+	color: red;
+}
+
+.success-message {
+	/*padding-left: 0.5rem;*/
+	color: #006600;
+}
+
+.splash-error-page {
+	padding: 1rem;
+}
+
+.visually-hidden {
+	display: none;
+}
+
+

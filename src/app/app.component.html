@@ -1,0 +1,16 @@
+
+<app-acronyms-header></app-acronyms-header>
+<app-acronyms-list></app-acronyms-list>
+
+<div>
+  <label>Some Label </label>
+  <input placeholder="placeholder">
+  <button pButton type="button" 
+      class="submit-button"
+      (click)="onAddDoggie($event)" 
+      label="Add Doggie" 
+      [disabled]="disabledAddDoggieButton"
+  ></button>
+</div>
+
+<router-outlet></router-outlet>
