@@ -23,23 +23,17 @@ import { AcronymsListComponent } from './acronyms-list/acronyms-list.component';
 })
 export class AppComponent implements OnInit {
   //title = 'Acronyms';
-  doggieList : Doggie[] = [];
-  cols: any[] = [];
+ // doggieList : Doggie[] = [];
+  //cols: any[] = [];
 
   disabledAddDoggieButton: boolean = false;
-  disabledEditDoggieButton: boolean = true;
+  //disabledEditDoggieButton: boolean = true;
 
   
-  constructor() {
-    setTimeout(() => {
-      this.disabledEditDoggieButton = false;
-    }, 2000);
-  }
-
   ngOnInit() {
     console.log("ngOnInit");
   }
-  
+
   onAddDoggie(event: any) {
     console.log("onAddDoggie");
     console.log("event", event);

@@ -1,16 +1,20 @@
 
 <div class="application-wrapper">
     <div class="table-grid-cases">
-
+        <div class="cases-header"></div>
         <div class="cases-header">Acronym</div>
         <div class="cases-header">Refers To</div>
         <div class="cases-header">Definition</div>
         <div class="cases-header">Area Key</div>
         <div class="cases-header">Tags</div>
-        <div class="cases-header">Last Updated (and actions)</div>
+        <div class="cases-header">Last Updated</div>
 
         <ng-container *ngFor="let a of acronyms">
-				<div class="cases-td">{{ a.acronym}}</div>
+          <div class="cases-td">
+            <img src="assets/images/pencil.png" class="cases-view-edit">
+            <img src="assets/images/deleteCase.jpg" class="cases-view-edit">
+          </div>
+				  <div class="cases-td">{{ a.acronym}}</div>
 				
 			<!--	<div id="id-view-edit" class="cases-td cases-td-title">
 					<img id="id-view-${caseId}" class="cases-view-edit" src="images/glasses.png"/>
@@ -27,8 +31,8 @@
 				<div class="cases-td">{{ a.refersTo }}</div>
 				<div class="cases-td">{{a.definition}}</div>
 				<div class="cases-td">{{a.areaKey}}</div>
-                <div class="cases-td">tags will go here</div>
-                <div class="cases-td">clickables plus last updated</div>
+        <div class="cases-td">tags</div>
+        <div class="cases-td">last updated</div>
 
 
 				

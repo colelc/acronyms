@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { Doggie } from '../doggie';
 import { Acronym } from '../acronym-if';
 
