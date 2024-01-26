@@ -1,83 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { NgOptimizedImage } from '@angular/common';
-import { Doggie } from '../doggie';
-import { Acronym } from '../acronym-if';
+//import { NgOptimizedImage } from '@angular/common';
+import { Acronym } from '../interface/acronym-if';
+import { AcronymsService } from '../service/acronyms.service';
 
 @Component({
   selector: 'app-acronyms-list',
   standalone: true,
   imports: [NgFor],
+  providers: [AcronymsService],
   templateUrl: './acronyms-list.component.html',
   styleUrl: './acronyms-list.component.css'
 })
-export class AcronymsListComponent {
-  doggieList : Doggie[] = [];
+export class AcronymsListComponent implements OnInit {
   acronyms: Acronym[] = [];
-  cols: any[] = [];
+
+  constructor(private acronymsService: AcronymsService) {
+  }
 
   ngOnInit() {
-    console.log("ngOnInit");
-    this.cols = [
-      {field: "id", header: "ID"},
-      {field: "name", header: "Doggie Name"},
-      {field: "age", header: "Age"},
-      {field: "location", header: "Lives In"}
-    ];
-
-    this.acronyms = [
-        {
-          id: 1, 
-          acronym: "ABC", 
-          refersTo: "refersTo", 
-          definition: "definition", 
-          areaKey: "areaKey",
-          active: true,
-          tags: [
-                {id: 1, tag: "Tag 1", active: true, 
-                createdBy: "tagCBy", created: "tagC", lastUpdatedBy: "tagLuBy", lastUpdated: "tagLu"},
-                {id: 2, tag: "Tag 2", active: true, 
-                createdBy: "tagCBy", created: "tagC", lastUpdatedBy: "tagLuBy", lastUpdated: "tagLu"}
-            ],
-          createdBy: "createdBy",
-          created: "created",
-          lastUpdatedBy: "lastUpdatedBy",
-          lastUpdated: "lastUpdated"
-        },
-        {
-          id: 2, 
-          acronym: "DEF", 
-          refersTo: "refersTo", 
-          definition: "definition", 
-          areaKey: "areaKey",
-          active: true,
-          tags: [
-                {id: 1, tag: "Tag 1", active: true, 
-                createdBy: "tagCBy", created: "tagC", lastUpdatedBy: "tagLuBy", lastUpdated: "tagLu"},
-                {id: 2, tag: "Tag 2", active: true, 
-                createdBy: "tagCBy", created: "tagC", lastUpdatedBy: "tagLuBy", lastUpdated: "tagLu"}
-            ],
-          createdBy: "createdBy",
-          created: "created",
-          lastUpdatedBy: "lastUpdatedBy",
-          lastUpdated: "lastUpdated"
-        }
-    ];
-
-    this.doggieList = [
-      {id: 1, name: "Oggie", age: 8, location: "North Carolina" },
-      {id: 2, name: "Shadow", age: 3, location: "North Carolina" },
-      {id: 3, name: "Poppy", age: 9, location: "Maryland" },
-      {id: 4, name: "Mordel", age: 3, location: "Maryland" }
-    ];
-
-    for (let d of this.doggieList) {
-      console.log(d.id + " " + d.name + " " + d.age);
-    }
+    console.log("acronyms-list-component: ngOnInit");
+    this.acronyms = this.acronymsService.getAcronyms();
   }
 
-  onAddDoggie(event: any) {
-    console.log("onAddDoggie");
-    console.log("event", event);
+  getEditAcronymId(id: number) {
+    return "id-edit-" + Number(id);
   }
+
+  getDeleteAcronymId(id: number) {
+    return "id-delete-" + Number(id);
+  }
+
+  onEditAcronym(event: any, acronymId: number) {
+    console.log("onEditAcronym: acronymId is " + acronymId);
+    //console.log("event", event);
+  }
+
+  onDeleteAcronym(event: any, acronymId: number) {
+    console.log("onDeleteAcronym: acronymId is " + acronymId);
+    //console.log("event", event);
+  }
+
+
+
 }

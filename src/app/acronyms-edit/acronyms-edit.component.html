@@ -1,0 +1,51 @@
+
+<div class="application-wrapper">
+    <div class="table-grid-cases">
+        <div class="cases-header"></div>
+        <div class="cases-header">Acronym</div>
+        <div class="cases-header">Refers To</div>
+        <div class="cases-header">Definition</div>
+        <div class="cases-header">Area Key</div>
+        <div class="cases-header">Tags</div>
+        <div class="cases-header">Last Updated</div>
+
+        <ng-container *ngFor="let a of acronyms">
+          <div class="cases-td">
+            <img src="assets/images/pencil.png" class="cases-view-edit" [id]="getEditAcronymId(a.id)"
+              (mouseover)="onShowToolTip($event, a.id, 'Edit ' + a.acronym)" 
+              (mouseout)="onHideToolTip($event, a.id)"
+              (click)="onEditAcronym($event, a.id)" >
+            <img src="assets/images/deleteCase.jpg" class="cases-view-edit"  [id]="getDeleteAcronymId(a.id)"
+              (mouseover)="onShowToolTip($event, a.id, 'Delete ' + a.acronym)" 
+              (mouseout)="onHideToolTip($event, a.id)"
+              (click)="onDeleteAcronym($event, a.id)">
+            <span class="tooltip" [id]="getToolTipId(a.id)">{{ tooltipText }}</span>
+          </div>
+				  <div class="cases-td">{{ a.acronym}}</div>
+				
+			<!--	<div id="id-view-edit" class="cases-td cases-td-title">
+					<img id="id-view-${caseId}" class="cases-view-edit" src="images/glasses.png"/>
+					<img id="id-edit-${caseId}" class="cases-view-edit" src="images/pencil.png"/>
+					<img id="id-clone-${caseId}" class="cases-view-edit" src="images/copy.png"/>
+					<img id="id-delete-${caseId}" class="cases-view-edit cases-view-edit-delete" src="images/deleteCase.jpg"/>
+
+					<span id=${Config.ID_VIEW_TOOLTIP}-${caseId} class="tooltip">View</span>
+					<span id=${Config.ID_EDIT_TOOLTIP}-${caseId} class="tooltip">Edit</span>
+					<span id=${Config.ID_CLONE_TOOLTIP}-${caseId} class="tooltip">Clone</span>
+					<span id=${Config.ID_DELETE_TOOLTIP}-${caseId} class="tooltip">Delete</span>
+				</div>
+            -->
+				<div class="cases-td">{{ a.refersTo }}</div>
+				<div class="cases-td">{{a.definition}}</div>
+				<div class="cases-td">{{a.areaKey}}</div>
+        <div class="cases-td">tags</div>
+        <div class="cases-td">last updated</div>
+
+
+				
+
+
+      <!--<a id="${Config.ID_TEMPLATE_TITLE_UPDATE_LINK}" class="${Config.CASE_LINK} ${Config.CASE_LINK_OPAQUE}">Update Title</a>-->
+        </ng-container>
+     </div>
+</div>
