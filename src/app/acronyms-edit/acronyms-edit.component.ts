@@ -32,15 +32,15 @@ export class AcronymsEditComponent {
     }
     return "disabled-link";
   }
-
+/*
   onInputKeyUp() {
     console.log("onInputKeyUp:  ");
 
-     const acronymList = this.acronymsService.getAcronyms();
-     console.log(acronymList);
+    // const acronymList = this.acronymsService.getAcronyms();
+    // console.log(acronymList);
 
   }
-
+*/
   onTextareaKeyUp(event: any, id: number, field: string) {
     console.log("ontextareakeyup");
 
