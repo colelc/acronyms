@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './acronyms-header.component.css'
 })
 export class AcronymsHeaderComponent {
-
+  newAcronym() {
+    console.log("new acronym");
+  }
 }

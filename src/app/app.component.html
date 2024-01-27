@@ -1,10 +1,6 @@
 
 <app-acronyms-header></app-acronyms-header>
 
-<!-- list component is for read-only access  -->
-<!--<app-acronyms-list></app-acronyms-list>-->
-
-<!-- edit component is for administrators -->
 @if (isAdministrator()) {
   <app-acronyms-edit></app-acronyms-edit>
 } @else {
