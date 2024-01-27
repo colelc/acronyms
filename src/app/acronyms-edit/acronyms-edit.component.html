@@ -13,13 +13,13 @@
         @for (a of acronyms; track a.id) {
           <div class="acronym-input-div acronym-input-div-center" >
             <a [class]="calculateSaveClass(a.id)" (click)="onSaveAcronym(a.id)" >
-              <img src="assets/images/save-outline-icon.png" class="acronym-save">
+              <img src="assets/images/save-outline-icon.png" class="acronym-image">
             </a>
 
             <span style="padding-left: 0.5rem;"></span>
 
             <a [id]="getDeleteAcronymId(a.id)" class="enabled-link" (click)="onDeleteAcronym(a.id)" >
-              <img src="assets/images/deleteCase.jpg" class="acronym-save"  [id]="getDeleteAcronymId(a.id)"
+              <img src="assets/images/deleteCase.jpg" class="acronym-image"  [id]="getDeleteAcronymId(a.id)"
               (click)="onDeleteAcronym(a.id)">
             </a>
           </div>
