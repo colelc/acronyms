@@ -23,14 +23,6 @@ export class AcronymsListComponent implements OnInit {
     this.acronyms = this.acronymsService.getAcronyms();
   }
 
-  getEditAcronymId(id: number) {
-    return "id-edit-" + Number(id);
-  }
-
-  getDeleteAcronymId(id: number) {
-    return "id-delete-" + Number(id);
-  }
-
   onEditAcronym(event: any, acronymId: number) {
     console.log("onEditAcronym: acronymId is " + acronymId);
     //console.log("event", event);

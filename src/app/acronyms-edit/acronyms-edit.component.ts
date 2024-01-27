@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Acronym } from '../interface/acronym-if';
+import { Saved } from '../interface/saved-if';
 import { NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AcronymsService } from '../service/acronyms.service';
@@ -14,8 +15,8 @@ import { AcronymsService } from '../service/acronyms.service';
 })
 export class AcronymsEditComponent {
   acronyms: Acronym[] = [];
+  saved: Saved[] = [];
   enableSaveIcon : string = "disabled-link";
-  test: string = "some test value";
 
   constructor(private acronymsService: AcronymsService) {
   }
@@ -32,51 +33,47 @@ export class AcronymsEditComponent {
     }
     return "disabled-link";
   }
-/*
-  onInputKeyUp() {
-    console.log("onInputKeyUp:  ");
 
-    // const acronymList = this.acronymsService.getAcronyms();
-    // console.log(acronymList);
+  onSaveAcronym( id: number) {
+    console.log("onSaveAcronym: id is " + id);
 
-  }
-*/
-  onTextareaKeyUp(event: any, id: number, field: string) {
-    console.log("ontextareakeyup");
+    // add code to actually save the record
 
-    const x = this.acronymsService.getAcronyms();
-    console.log(x);
-  }
 
-  onTextareaPaste(event: any, id: number, field: string) {
-    console.log("ontextareapaste");
-  }
-
-  // getAcronymId(id: number) {
-  //   return String(id);
-  // }
-
-  getSaveAcronymId(id: number) {
-    return "id-save-" + Number(id);
-  }
-
-  getDeleteAcronymId(id: number) {
-    return "id-delete-" + Number(id);
-  }
-
-  onSaveAcronym( acronymId: number) {
-    console.log("onSaveAcronym: acronymId is " + acronymId);
-    //console.log("event", event);
+    this.showCheckmark(id);
   }
 
   onDeleteAcronym(acronymId: number) {
     console.log("onDeleteAcronym: acronymId is " + acronymId);
-    //console.log("event", event);
+
+    // add code to actually delete the record
+
   }
 
   ngOnInit() {
     this.acronyms = this.acronymsService.getAcronyms();
-
-    
+    this.initCheckmarks();
   }
+
+  private initCheckmarks() {
+    for (let a of this.acronyms) {
+      this.saved.push({id: a.id, saved: false});
+    }
+  }
+
+  getHidden(id: number) {
+    const filtered = this.saved.filter((obj) => obj.id === id);
+    return !filtered[0].saved;
+  }
+
+  showCheckmark(id: number) {
+    const filtered = this.saved.filter((obj) => obj.id === id);
+    filtered[0].saved = true;
+  }
+
+  hideCheckmark(id: number) {
+    const filtered = this.saved.filter((obj) => obj.id === id);
+    filtered[0].saved = false;
+  }
+
 }

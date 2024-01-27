@@ -12,6 +12,10 @@
         <!-- <ng-container *ngFor="let a of acronyms"> -->
         @for (a of acronyms; track a.id) {
           <div class="acronym-input-div acronym-input-div-center" >
+            <img src="assets/images/checkmark-16.png" class="acronym-image" [hidden]="getHidden(a.id)">
+
+            <span style="padding-left: 0.5rem;"></span>
+
             <a [class]="calculateSaveClass(a.id)" (click)="onSaveAcronym(a.id)" >
               <img src="assets/images/save-outline-icon.png" class="acronym-image">
             </a>
@@ -26,6 +30,7 @@
           <div class="acronym-input-div">
               <input  
                 [(ngModel)]="a.acronym"
+                (keyup)="hideCheckmark(a.id)"
                 type="text" class="input-box input-box-acronym" 
                 nminlength="2"
                 size="10">
@@ -41,8 +46,6 @@
 
           <div class="acronym-input-div">
             <textarea class="form-control input-box input-textarea-description" 
-             (keyup)="onTextareaKeyUp($event, a.id, 'definition')"
-             (paste)="onTextareaPaste($event, a.id, 'definition')"
              [(ngModel)]="a.definition"
              rows="5">
             </textarea>

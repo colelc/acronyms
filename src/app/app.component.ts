@@ -23,16 +23,14 @@ import { AcronymsFooterComponent } from './acronyms-footer/acronyms-footer.compo
   schemas: [/*CUSTOM_ELEMENTS_SCHEMA*/] // need this for PrimeNg to work
 })
 export class AppComponent implements OnInit {
-  //title = 'Acronyms';
- // doggieList : Doggie[] = [];
-  //cols: any[] = [];
 
-  disabledAddDoggieButton: boolean = false;
-  //disabledEditDoggieButton: boolean = true;
+  isAdministrator() {
+    return true;
+  }
 
-  
+
   ngOnInit() {
-    console.log("ngOnInit");
+    console.log("app ngOnInit");
   }
 
 }

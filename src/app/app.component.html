@@ -5,23 +5,11 @@
 <!--<app-acronyms-list></app-acronyms-list>-->
 
 <!-- edit component is for administrators -->
-<app-acronyms-edit></app-acronyms-edit>
-
-
-
-<!--
-<div>
-  <label>Some Label </label>
-  <input placeholder="placeholder">
-  <button pButton type="button" 
-      class="submit-button"
-      (click)="onAddDoggie($event)" 
-      label="Add Doggie" 
-      [disabled]="disabledAddDoggieButton"
-  ></button>
-</div>
--->
-<app-acronyms-footer></app-acronyms-footer>
+@if (isAdministrator()) {
+  <app-acronyms-edit></app-acronyms-edit>
+} @else {
+  <app-acronyms-footer></app-acronyms-footer>
+}
 
 <!--<router-outlet></router-outlet>-->
 
