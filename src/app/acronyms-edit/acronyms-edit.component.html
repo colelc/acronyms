@@ -9,7 +9,8 @@
         <div class="acronyms-header">Tags</div>
         <div class="acronyms-header">Last Updated</div>
 
-        <ng-container *ngFor="let a of acronyms">
+        <!-- <ng-container *ngFor="let a of acronyms"> -->
+        @for (a of acronyms; track a.id) {
           <div class="acronym-input-div">
             <a [id]="getSaveAcronymId(a.id)" [class]="calculateSaveClass(a.id)" (click)="onSaveAcronym($event, a.id)" >
               <img src="assets/images/save-outline-icon.png" class="acronym-save">
@@ -19,40 +20,43 @@
           </div>
 
           <div class="acronym-input-div">
-              <input  (keyup)="onInputKeyUp($event, a.id, 'acronym')"
+              <input  (keyup)="onInputKeyUp()"
+                [(ngModel)]="a.acronym"
                 type="text" class="input-box input-box-acronym" [id]="getAcronymId(a.id)"
                 minlength="2"
-                size="10"
-              value="{{ a.acronym }}">
+                size="10">
           </div>
 
           <div class="acronym-input-div">
-            <input  (keyup)="onInputKeyUp($event, a.id, 'refersTo')"
+            <input  (keyup)="onInputKeyUp()"
+            [(ngModel)]="a.refersTo"
             type="text" class="input-box input-box-refers-to" [id]="getAcronymId(a.id)"
             minlength="1"
-            size="80"
-            value="{{ a.refersTo }}">
+            size="80">
           </div>
 
           <div class="acronym-input-div">
             <textarea class="form-control input-box input-textarea-description" 
              [id]="getAcronymId(a.id)" 
-             value="{{ a.definition }}"
+             (keyup)="onTextareaKeyUp($event, a.id, 'definition')"
+             (paste)="onTextareaPaste($event, a.id, 'definition')"
+             [(ngModel)]="a.definition"
              rows="5">
             </textarea>
           </div>
 
           <div class="acronym-input-div">
-            <input  (keyup)="onInputKeyUp($event, a.id, 'areaKey')"
+            <input  (keyup)="onInputKeyUp()"
+            [(ngModel)]="a.areaKey"
             type="text" class="input-box input-box-area-key" [id]="getAcronymId(a.id)"
             minlength="1"
-            size="10"
-            value="{{ a.areaKey }}">
+            size="10">
           </div>
 
           <div class="acronym-input-div">
             <textarea class="form-control input-box input-textarea-description" 
              [id]="getAcronymId(a.id)" 
+             [(ngModel)]="a.tagString"
              value="tags"
              rows="1">
             </textarea>
@@ -67,6 +71,7 @@
 
 
       <!--<a id="${Config.ID_TEMPLATE_TITLE_UPDATE_LINK}" class="${Config.CASE_LINK} ${Config.CASE_LINK_OPAQUE}">Update Title</a>-->
-        </ng-container>
+        <!-- </ng-container> -->
+        }
      </div>
 </div>

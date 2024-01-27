@@ -8,6 +8,7 @@ export interface Acronym {
     areaKey: string;
     active: boolean;
     tags:  Tag[];
+    tagString: string;
     createdBy: string;
     created: string;
     lastUpdatedBy: string;

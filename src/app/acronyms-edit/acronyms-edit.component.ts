@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Acronym } from '../interface/acronym-if';
 import { NgFor } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AcronymsService } from '../service/acronyms.service';
 
 @Component({
   selector: 'app-acronyms-edit',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, FormsModule],
   providers: [AcronymsService],
   templateUrl: './acronyms-edit.component.html',
   styleUrl: './acronyms-edit.component.css'
@@ -14,6 +15,7 @@ import { AcronymsService } from '../service/acronyms.service';
 export class AcronymsEditComponent {
   acronyms: Acronym[] = [];
   enableSaveIcon : string = "disabled-link";
+  test: string = "some test value";
 
   constructor(private acronymsService: AcronymsService) {
   }
@@ -31,24 +33,12 @@ export class AcronymsEditComponent {
     return "disabled-link";
   }
 
-  onInputKeyUp(event : any, id: number, field: string) {
-    const updated = event.target.value;
-    console.log("onInputKeyUp: event.target.value = " + updated + " for id = " + String(id) + " and field = " + field);
+  onInputKeyUp() {
+    console.log("onInputKeyUp:  ");
 
      const acronymList = this.acronymsService.getAcronyms();
      console.log(acronymList);
 
-    for (let a of acronymList) {
-      if (a.id === id) {
-        //a.refersTo = updated;
-        this.applyKeyUpUpdate(a, field, updated);
-        break;
-      }
-    }
-
-    // const x = this.acronymsService.getAcronyms();
-    // console.log("after going back to service");
-    // console.log(x);
   }
 
   private applyKeyUpUpdate(a: Acronym, field: string, updated: string) {
@@ -66,6 +56,18 @@ export class AcronymsEditComponent {
         console.log("uh oh, what attribute are we working with?");
         break;
     }
+  }
+
+  onTextareaKeyUp(event: any, id: number, field: string) {
+    console.log("ontextareakeyup");
+
+    const x = this.acronymsService.getAcronyms();
+    console.log("after going back to service");
+    console.log(x);
+  }
+
+  onTextareaPaste(event: any, id: number, field: string) {
+    console.log("ontextareapaste");
   }
 
   getAcronymId(id: number) {

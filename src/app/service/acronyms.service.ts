@@ -16,6 +16,7 @@ export class AcronymsService {
                 {id: 2, tag: "Tag 2", active: true, 
                 createdBy: "tagCBy", created: "tagC", lastUpdatedBy: "tagLuBy", lastUpdated: "tagLu"}
             ],
+          tagString: "Tag 1, Tag 2",
           createdBy: "createdBy",
           created: "created",
           lastUpdatedBy: "lastUpdatedBy",
@@ -34,6 +35,7 @@ export class AcronymsService {
                 {id: 2, tag: "Tag 2", active: true, 
                 createdBy: "tagCBy", created: "tagC", lastUpdatedBy: "tagLuBy", lastUpdated: "tagLu"}
             ],
+          tagString: "Tag 1, Tag 2",
           createdBy: "createdBy",
           created: "created",
           lastUpdatedBy: "lastUpdatedBy",
