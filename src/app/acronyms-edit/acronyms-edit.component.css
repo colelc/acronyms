@@ -49,6 +49,10 @@
     background-color: #f6f6f6;
   }
 
+  .acronym-input-div-center {
+    text-align: center;
+  }
+
   .input-box {
     background-color: white;
     color: black;
@@ -86,30 +90,10 @@
 
   .acronym-save {
     cursor: pointer;
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-  
-  .acronym-save-delete {
-    padding-left: 0.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
   }
 
-
-  /*
-  .input-box-error {
-    color: red;
-    padding-left: 1rem;
-    padding-bottom: 0.2rem;
-    font-size: 0.7rem;
-  }
-  
-  .input-box-success {
-    color: green;
-    padding-left: 1rem;
-    padding-bottom: 0.2rem;
-    font-size: 0.7rem;
-  }
-*/
   .disabled-link {
     pointer-events: none;
     opacity: 0.3;

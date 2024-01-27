@@ -24,7 +24,7 @@ export class AcronymsEditComponent {
     //console.log("calculateSaveClass for id = " + id);
     const a = this.acronymsService.getAcronymById(id);
     if (a !== null) {
-      if (a.acronym.length < 2) {
+      if (a.acronym.length < 2  ||  a.refersTo.length === 0  ||  a.definition.length === 0  ||  a.areaKey.length === 0) {
         return "disabled-link";
       } else {
         return "enabled-link";
@@ -64,12 +64,12 @@ export class AcronymsEditComponent {
     return "id-delete-" + Number(id);
   }
 
-  onSaveAcronym(event: any, acronymId: number) {
+  onSaveAcronym( acronymId: number) {
     console.log("onSaveAcronym: acronymId is " + acronymId);
     //console.log("event", event);
   }
 
-  onDeleteAcronym(event: any, acronymId: number) {
+  onDeleteAcronym(acronymId: number) {
     console.log("onDeleteAcronym: acronymId is " + acronymId);
     //console.log("event", event);
   }

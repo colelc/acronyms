@@ -55,15 +55,3 @@
     height: 1.5rem;
   }
   
-  .acronym-save-delete {
-    padding-left: 0.2rem;
-  }
-  
-  .tooltip {
-    color: #333;
-    font-size: 0.7rem;
-    border-radius: 5px;
-    background-color: lightyellow;
-    font-weight: bold;
-  }
-  
