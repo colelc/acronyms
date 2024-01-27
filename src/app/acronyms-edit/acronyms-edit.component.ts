@@ -41,28 +41,10 @@ export class AcronymsEditComponent {
 
   }
 
-  private applyKeyUpUpdate(a: Acronym, field: string, updated: string) {
-    switch(field) {
-      case "acronym":
-        a.acronym = updated;
-        break;
-      case "refersTo":
-        a.refersTo = updated;
-        break;
-      case "areaKey":
-        a.areaKey = updated;
-        break;
-      default:
-        console.log("uh oh, what attribute are we working with?");
-        break;
-    }
-  }
-
   onTextareaKeyUp(event: any, id: number, field: string) {
     console.log("ontextareakeyup");
 
     const x = this.acronymsService.getAcronyms();
-    console.log("after going back to service");
     console.log(x);
   }
 
@@ -70,9 +52,9 @@ export class AcronymsEditComponent {
     console.log("ontextareapaste");
   }
 
-  getAcronymId(id: number) {
-    return String(id);
-  }
+  // getAcronymId(id: number) {
+  //   return String(id);
+  // }
 
   getSaveAcronymId(id: number) {
     return "id-save-" + Number(id);

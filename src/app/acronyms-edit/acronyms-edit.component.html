@@ -22,7 +22,7 @@
           <div class="acronym-input-div">
               <input  (keyup)="onInputKeyUp()"
                 [(ngModel)]="a.acronym"
-                type="text" class="input-box input-box-acronym" [id]="getAcronymId(a.id)"
+                type="text" class="input-box input-box-acronym" 
                 minlength="2"
                 size="10">
           </div>
@@ -30,14 +30,13 @@
           <div class="acronym-input-div">
             <input  (keyup)="onInputKeyUp()"
             [(ngModel)]="a.refersTo"
-            type="text" class="input-box input-box-refers-to" [id]="getAcronymId(a.id)"
+            type="text" class="input-box input-box-refers-to" 
             minlength="1"
             size="80">
           </div>
 
           <div class="acronym-input-div">
             <textarea class="form-control input-box input-textarea-description" 
-             [id]="getAcronymId(a.id)" 
              (keyup)="onTextareaKeyUp($event, a.id, 'definition')"
              (paste)="onTextareaPaste($event, a.id, 'definition')"
              [(ngModel)]="a.definition"
@@ -48,16 +47,14 @@
           <div class="acronym-input-div">
             <input  (keyup)="onInputKeyUp()"
             [(ngModel)]="a.areaKey"
-            type="text" class="input-box input-box-area-key" [id]="getAcronymId(a.id)"
+            type="text" class="input-box input-box-area-key" 
             minlength="1"
             size="10">
           </div>
 
           <div class="acronym-input-div">
             <textarea class="form-control input-box input-textarea-description" 
-             [id]="getAcronymId(a.id)" 
              [(ngModel)]="a.tagString"
-             value="tags"
              rows="1">
             </textarea>
           </div>
