@@ -1,45 +1,55 @@
 
 <div class="application-wrapper">
-    <div class="table-grid-cases">
-        <div class="cases-header"></div>
-        <div class="cases-header">Acronym</div>
-        <div class="cases-header">Refers To</div>
-        <div class="cases-header">Definition</div>
-        <div class="cases-header">Area Key</div>
-        <div class="cases-header">Tags</div>
-        <div class="cases-header">Last Updated</div>
+    <div class="table-grid-acronyms">
+        <div class="acronyms-header"></div>
+        <div class="acronyms-header">Acronym</div>
+        <div class="acronyms-header">Refers To</div>
+        <div class="acronyms-header">Definition</div>
+        <div class="acronyms-header">Area Key</div>
+        <div class="acronyms-header">Tags</div>
+        <div class="acronyms-header">Last Updated</div>
 
         <ng-container *ngFor="let a of acronyms">
-          <div class="cases-td">
+          <div class="acronym-input-div">
             <a [id]="getSaveAcronymId(a.id)" [class]="calculateSaveClass(a.id)" (click)="onSaveAcronym($event, a.id)" >
-              <img src="assets/images/save-outline-icon.png" class="cases-view-edit">
+              <img src="assets/images/save-outline-icon.png" class="acronym-save">
             </a>
-            <img src="assets/images/deleteCase.jpg" class="cases-view-edit"  [id]="getDeleteAcronymId(a.id)"
+            <img src="assets/images/deleteCase.jpg" class="acronym-save"  [id]="getDeleteAcronymId(a.id)"
               (click)="onDeleteAcronym($event, a.id)">
-            <span class="tooltip" [id]="getToolTipId(a.id)">{{ tooltipText }}</span>
           </div>
 
-				  <!-- <div class="cases-td">{{ a.acronym}}</div> -->
-          <div class="cases-td">
-            <div style="display: inline-block;">
-              <!-- <input #box (keyup)="onAcronymKeyUp(box.value, box.id)"
-                  type="text" class="template-title" [id]="getAcronymId(a.id)"
-                  minlength="2"
-                  size="10"
-                value="{{ a.acronym }}"> -->
+          <div class="acronym-input-div">
               <input  (keyup)="onAcronymKeyUp($event, a.id)"
-                type="text" class="template-title" [id]="getAcronymId(a.id)"
+                type="text" class="input-box input-box-acronym" [id]="getAcronymId(a.id)"
                 minlength="2"
                 size="10"
               value="{{ a.acronym }}">
-            </div> 
           </div>
 
-          <div class="cases-td">{{ a.refersTo }}</div>
-          <div class="cases-td">{{a.definition}}</div>
-          <div class="cases-td">{{a.areaKey}}</div>
-          <div class="cases-td">tags</div>
-          <div class="cases-td">last updated</div>
+          <div class="acronym-input-div">
+            <input  (keyup)="onAcronymKeyUp($event, a.id)"
+            type="text" class="input-box input-box-refers-to" [id]="getAcronymId(a.id)"
+            minlength="1"
+            size="80"
+            value="{{ a.refersTo }}">
+          </div>
+
+          <div class="acronym-input-div">
+            <textarea class="form-control input-box input-textarea-description" 
+             [id]="getAcronymId(a.id)" 
+             value="{{ a.definition }}"
+             rows="5">
+            </textarea>
+
+            <!-- <input  (keyup)="onAcronymKeyUp($event, a.id)"
+            type="text" class="input-box input-box-refers-to" [id]="getAcronymId(a.id)"
+            minlength="1"
+            size="80"
+            value="{{ a.definition }}"> -->
+          </div>
+          <div class="acronym-input-div">{{a.areaKey}}</div>
+          <div class="acronym-input-div">tags</div>
+          <div class="acronym-input-div">last updated</div>
 
 
 				

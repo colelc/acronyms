@@ -1,20 +1,16 @@
-.cases-table {
-    table-layout: auto;
-    width: 100%;
-}
 
-.table-grid-cases {
+.table-grid-acronyms {
    display: grid;
    /*grid-template-columns: 0.3fr 3fr 1fr 1fr 1fr;*/
   /* grid-template-columns: 0.3fr 0.8fr 3fr 1fr 1fr 1fr;*/
-  grid-template-columns: 1fr 0.5fr 1fr 3fr 1fr 1.5fr 1fr;
+  grid-template-columns: 1fr 1fr 2fr 6fr 1fr 1.5fr 1fr;
    row-gap: 0px;
    column-gap: 0px;
    margin: auto;
    background-color: white;
 }
 
-.cases-header {
+.acronyms-header {
     position: sticky;
     top: 3.3rem;
     /*background-color: #302293;*/
@@ -33,14 +29,13 @@
     border-right: 1px solid white;
   }
   
-  
-  .cases-header:last-child {
+  .acronyms-header:last-child {
     border: 0;
   }
   
-  .cases-td {
+  .acronym-input-div {
     /*font-size: 0.7rem;*/
-    padding-left: 1rem;
+    padding-left: 0.5rem;
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
     color: #333;
@@ -53,17 +48,8 @@
     background-color: #f6f6f6;
   }
 
-  .cases-view-edit {
-    cursor: pointer;
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-  
-  .cases-view-edit-delete {
-    padding-left: 0.2rem;
-  }
-
-  .template-title {
+  .input-box {
+    background-color: white;
     color: black;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -76,21 +62,48 @@
     border-right: none;
     border-bottom: solid lightgray 0.1rem;
   }
+
+  .input-box-acronym {
+    width: 3.3rem;
+    text-align: center;
+  }
+
+  .input-box-refers-to {
+    width: 18.5rem;
+  }
+
+  .input-textarea-description {
+     /* border: 1px solid #ccc; */
+      font-family: "Open Sans", sans-serif;
+      width: 30rem;
+  }
+
+  .acronym-save {
+    cursor: pointer;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
   
-  .template-title-error {
+  .acronym-save-delete {
+    padding-left: 0.2rem;
+  }
+
+
+  /*
+  .input-box-error {
     color: red;
     padding-left: 1rem;
     padding-bottom: 0.2rem;
     font-size: 0.7rem;
   }
   
-  .template-title-success {
+  .input-box-success {
     color: green;
     padding-left: 1rem;
     padding-bottom: 0.2rem;
     font-size: 0.7rem;
   }
-
+*/
   .disabled-link {
     pointer-events: none;
     opacity: 0.3;

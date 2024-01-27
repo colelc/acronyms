@@ -1,20 +1,20 @@
 
 <div class="application-wrapper">
-    <div class="table-grid-cases">
-        <div class="cases-header">Acronym</div>
-        <div class="cases-header">Refers To</div>
-        <div class="cases-header">Definition</div>
-        <div class="cases-header">Area Key</div>
-        <div class="cases-header">Tags</div>
-        <div class="cases-header">Last Updated</div>
+    <div class="table-grid-acronyms">
+        <div class="acronyms-header">Acronym</div>
+        <div class="acronyms-header">Refers To</div>
+        <div class="acronyms-header">Definition</div>
+        <div class="acronyms-header">Area Key</div>
+        <div class="acronyms-header">Tags</div>
+        <div class="acronyms-header">Last Updated</div>
 
         <ng-container *ngFor="let a of acronyms">
-				  <div class="cases-td">{{ a.acronym}}</div>
-          <div class="cases-td">{{ a.refersTo }}</div>
-          <div class="cases-td">{{a.definition}}</div>
-          <div class="cases-td">{{a.areaKey}}</div>
-          <div class="cases-td">tags</div>
-          <div class="cases-td">last updated</div>
+				  <div class="acronyms-td">{{ a.acronym}}</div>
+          <div class="acronyms-td">{{ a.refersTo }}</div>
+          <div class="acronyms-td">{{a.definition}}</div>
+          <div class="acronyms-td">{{a.areaKey}}</div>
+          <div class="acronyms-td">tags</div>
+          <div class="acronyms-td">last updated</div>
       <!--<a id="${Config.ID_TEMPLATE_TITLE_UPDATE_LINK}" class="${Config.CASE_LINK} ${Config.CASE_LINK_OPAQUE}">Update Title</a>-->
         </ng-container>
      </div>
