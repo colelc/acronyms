@@ -19,7 +19,7 @@
           </div>
 
           <div class="acronym-input-div">
-              <input  (keyup)="onAcronymKeyUp($event, a.id)"
+              <input  (keyup)="onInputKeyUp($event, a.id, 'acronym')"
                 type="text" class="input-box input-box-acronym" [id]="getAcronymId(a.id)"
                 minlength="2"
                 size="10"
@@ -27,7 +27,7 @@
           </div>
 
           <div class="acronym-input-div">
-            <input  (keyup)="onAcronymKeyUp($event, a.id)"
+            <input  (keyup)="onInputKeyUp($event, a.id, 'refersTo')"
             type="text" class="input-box input-box-refers-to" [id]="getAcronymId(a.id)"
             minlength="1"
             size="80"
@@ -40,16 +40,27 @@
              value="{{ a.definition }}"
              rows="5">
             </textarea>
-
-            <!-- <input  (keyup)="onAcronymKeyUp($event, a.id)"
-            type="text" class="input-box input-box-refers-to" [id]="getAcronymId(a.id)"
-            minlength="1"
-            size="80"
-            value="{{ a.definition }}"> -->
           </div>
-          <div class="acronym-input-div">{{a.areaKey}}</div>
-          <div class="acronym-input-div">tags</div>
-          <div class="acronym-input-div">last updated</div>
+
+          <div class="acronym-input-div">
+            <input  (keyup)="onInputKeyUp($event, a.id, 'areaKey')"
+            type="text" class="input-box input-box-area-key" [id]="getAcronymId(a.id)"
+            minlength="1"
+            size="10"
+            value="{{ a.areaKey }}">
+          </div>
+
+          <div class="acronym-input-div">
+            <textarea class="form-control input-box input-textarea-description" 
+             [id]="getAcronymId(a.id)" 
+             value="tags"
+             rows="1">
+            </textarea>
+          </div>
+
+          <div class="acronym-input-div">
+            <span class="input-box">Last Updated</span>
+          </div>
 
 
 				

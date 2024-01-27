@@ -36,6 +36,7 @@
   .acronym-input-div {
     /*font-size: 0.7rem;*/
     padding-left: 0.5rem;
+    padding-right: 0.5rem;
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
     color: #333;
@@ -76,6 +77,10 @@
      /* border: 1px solid #ccc; */
       font-family: "Open Sans", sans-serif;
       width: 30rem;
+  }
+
+  .input-box-area-key {
+    width: 3.5rem;
   }
 
   .acronym-save {

@@ -13,8 +13,6 @@ import { AcronymsService } from '../service/acronyms.service';
 })
 export class AcronymsEditComponent {
   acronyms: Acronym[] = [];
-  tooltipId: string = "";
-  tooltipText: string = "";
   enableSaveIcon : string = "disabled-link";
 
   constructor(private acronymsService: AcronymsService) {
@@ -33,48 +31,42 @@ export class AcronymsEditComponent {
     return "disabled-link";
   }
 
-  onAcronymKeyUp(event : any, id: number) {
-    const updatedAcronym = event.target.value;
-    console.log("onAcronymKeyUp: event.target.value = " + updatedAcronym + " for id = " + String(id));
+  onInputKeyUp(event : any, id: number, field: string) {
+    const updated = event.target.value;
+    console.log("onInputKeyUp: event.target.value = " + updated + " for id = " + String(id) + " and field = " + field);
 
      const acronymList = this.acronymsService.getAcronyms();
      console.log(acronymList);
 
     for (let a of acronymList) {
       if (a.id === id) {
-        a.acronym = updatedAcronym;
+        //a.refersTo = updated;
+        this.applyKeyUpUpdate(a, field, updated);
         break;
       }
     }
 
-    const x = this.acronymsService.getAcronyms();
-    console.log("after going back to service");
-    console.log(x);
+    // const x = this.acronymsService.getAcronyms();
+    // console.log("after going back to service");
+    // console.log(x);
   }
 
-  // onAcronymKeyUp(value : string, id: string) {
-  //   console.log(id + " -> " + value);
-  //   const targetId = Number(id);
-
-  //   const acronymList = this.acronymsService.getAcronyms();
-  //  // acronymList.reduce((result, ac) => result, acronymList);
-  //  console.log("Acronym List before reducing: " );
-  //  console.log(acronymList);
-  //  console.log("Start reducing");
-
-  //   const modifiedArray = acronymList.reduce((acc, a) => {
-  //     if (a.id === targetId) {
-  //       const modifiedObject = { ...a, acronym: value };
-  //       acc.pop();
-  //       acc.push(modifiedObject);
-  //     } else {
-  //       acc.push(a);
-  //     }
-  //     return acc;
-  //   }, acronymList);
-  //   console.log("Done reducing: modified array");
-  //   console.log(modifiedArray);
-  // }
+  private applyKeyUpUpdate(a: Acronym, field: string, updated: string) {
+    switch(field) {
+      case "acronym":
+        a.acronym = updated;
+        break;
+      case "refersTo":
+        a.refersTo = updated;
+        break;
+      case "areaKey":
+        a.areaKey = updated;
+        break;
+      default:
+        console.log("uh oh, what attribute are we working with?");
+        break;
+    }
+  }
 
   getAcronymId(id: number) {
     return String(id);
@@ -88,10 +80,6 @@ export class AcronymsEditComponent {
     return "id-delete-" + Number(id);
   }
 
-  getToolTipId(id: number) {
-    return "id-tooltip-" + Number(id);
-  }
-
   onSaveAcronym(event: any, acronymId: number) {
     console.log("onSaveAcronym: acronymId is " + acronymId);
     //console.log("event", event);
@@ -102,14 +90,7 @@ export class AcronymsEditComponent {
     //console.log("event", event);
   }
 
-  onShowToolTip(event: any, id: number, tooltip: string) {
-  }
-
-  onHideToolTip(event: any, id: number) {
-  }
-
   ngOnInit() {
-    console.log("acronyms-edit-component: ngOnInit");
     this.acronyms = this.acronymsService.getAcronyms();
 
     
