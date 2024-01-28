@@ -9,7 +9,7 @@
     <div class="acronym-header">Last Updated</div>
 
     @for (a of acronyms; track a.id) {
-        <div class="acronym-data-cell item-center" >
+        <div [class]="calculateStriping($even)" >
         <img src="assets/images/checkmark-16.png" class="acronym-image" [hidden]="getHidden(a.id)">
 
         <a [class]="calculateSaveClass(a.id)" (click)="onSaveAcronym(a.id)" >
@@ -23,12 +23,12 @@
         </a>
         </div>
 
-        <div class="acronym-data-cell item-center" type="text">{{ a.acronym }}</div>
-        <div class="acronym-data-cell" type="text">{{ a.refersTo }}</div>
-        <div class="acronym-data-cell" type="text">{{ a.definition }}</div>
-        <div class="acronym-data-cell" type="text">{{ a.areaKey }}</div>
-        <div class="acronym-data-cell" type="text">{{ a.tagString }}</div>
-        <div class="acronym-data-cell item-center" type="text">{{ a.lastUpdatedBy }} {{ a.lastUpdated }}</div>
+        <div [class]="calculateStriping($even)" type="text">{{ a.acronym }}</div>
+        <div [class]="calculateStriping($even)" type="text">{{ a.refersTo }}</div>
+        <div [class]="calculateStriping($even)" type="text">{{ a.definition }}</div>
+        <div [class]="calculateStriping($even)" type="text">{{ a.areaKey }}</div>
+        <div [class]="calculateStriping($even)" type="text">{{ a.tagString }}</div>
+        <div [class]="calculateStriping($even)" type="text">{{ a.lastUpdatedBy }} {{ a.lastUpdated }}</div>
     }
  </div>
 

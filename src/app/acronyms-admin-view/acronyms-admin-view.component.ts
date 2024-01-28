@@ -22,6 +22,15 @@ export class AcronymsAdminViewComponent {
   constructor(private acronymsService: AcronymsService) {
   }
 
+  calculateStriping = (isEven: boolean) => {
+    console.log("calculate Striping: " + isEven);
+    if (isEven) {
+    return "acronym-data-cell";
+    } else {
+      return "acronym-data-cell acronym-data-cell-striping";
+    }
+  }
+
   calculateSaveClass = (id: number) => {
     //console.log("calculateSaveClass for id = " + id);
     const a = this.acronymsService.getAcronymById(id);
