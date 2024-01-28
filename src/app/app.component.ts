@@ -17,20 +17,35 @@ import { AcronymsFooterComponent } from './acronyms-footer/acronyms-footer.compo
   selector: 'app-home',
   standalone: true,
  // imports: [RouterOutlet],
-  imports: [NgFor, AcronymsHeaderComponent, AcronymsListComponent, AcronymsFooterComponent, AcronymsEditComponent],
+  imports: [AcronymsHeaderComponent, AcronymsListComponent, AcronymsFooterComponent, AcronymsEditComponent],
+  providers: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   schemas: [/*CUSTOM_ELEMENTS_SCHEMA*/] // need this for PrimeNg to work
 })
+
 export class AppComponent implements OnInit {
 
-  isAdministrator() {
+  public clickedEvent: Event = new Event(""); // don't like that I have to initialize event here
+
+  constructor() {
+  }
+
+  childEventClicked= (event: Event) => {
+    this.clickedEvent = event;
+  }
+
+  isAdministrator = () => {
     return true;
   }
 
 
   ngOnInit() {
     console.log("app ngOnInit");
+
   }
+
+
+
 
 }

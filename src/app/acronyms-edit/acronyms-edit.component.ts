@@ -21,7 +21,7 @@ export class AcronymsEditComponent {
   constructor(private acronymsService: AcronymsService) {
   }
 
-  calculateSaveClass(id: number) {
+  calculateSaveClass = (id: number) => {
     //console.log("calculateSaveClass for id = " + id);
     const a = this.acronymsService.getAcronymById(id);
     if (a !== null) {
@@ -34,7 +34,7 @@ export class AcronymsEditComponent {
     return "disabled-link";
   }
 
-  onSaveAcronym( id: number) {
+  onSaveAcronym = ( id: number) => {
     console.log("onSaveAcronym: id is " + id);
 
     // add code to actually save the record
@@ -43,7 +43,7 @@ export class AcronymsEditComponent {
     this.showCheckmark(id);
   }
 
-  onDeleteAcronym(acronymId: number) {
+  onDeleteAcronym = (acronymId: number) => {
     console.log("onDeleteAcronym: acronymId is " + acronymId);
 
     // add code to actually delete the record
@@ -55,23 +55,23 @@ export class AcronymsEditComponent {
     this.initCheckmarks();
   }
 
-  private initCheckmarks() {
+  private initCheckmarks = () => {
     for (let a of this.acronyms) {
       this.saved.push({id: a.id, saved: false});
     }
   }
 
-  getHidden(id: number) {
+  getHidden = (id: number) => {
     const filtered = this.saved.filter((obj) => obj.id === id);
     return !filtered[0].saved;
   }
 
-  showCheckmark(id: number) {
+  showCheckmark = (id: number) => {
     const filtered = this.saved.filter((obj) => obj.id === id);
     filtered[0].saved = true;
   }
 
-  hideCheckmark(id: number) {
+  hideCheckmark = (id: number) => {
     const filtered = this.saved.filter((obj) => obj.id === id);
     filtered[0].saved = false;
   }
