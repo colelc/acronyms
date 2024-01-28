@@ -23,7 +23,6 @@ export class AcronymsAdminViewComponent {
   }
 
   calculateStriping = (isEven: boolean) => {
-    console.log("calculate Striping: " + isEven);
     if (isEven) {
     return "acronym-data-cell";
     } else {

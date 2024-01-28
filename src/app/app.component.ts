@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+
 //import { TableModule } from 'primeng/table'; 
 //import { ButtonModule } from 'primeng/button';
 import { AcronymsHeaderComponent } from './acronyms-header/acronyms-header.component';
@@ -9,13 +9,12 @@ import { AcronymsFooterComponent } from './acronyms-footer/acronyms-footer.compo
 import { AcronymsAdminViewComponent } from './acronyms-admin-view/acronyms-admin-view.component';
 import { AcronymsUserViewComponent } from './acronyms-user-view/acronyms-user-view.component';
 import { AcronymsService } from './service/acronyms.service';
-import { User } from './interface/user-if';
 import { UserService } from './service/user.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterModule, RouterOutlet, 
+  imports: [ 
     AcronymsHeaderComponent, AcronymsListComponent, AcronymsFooterComponent, AcronymsEditComponent,
     AcronymsAdminViewComponent, AcronymsUserViewComponent
   ],

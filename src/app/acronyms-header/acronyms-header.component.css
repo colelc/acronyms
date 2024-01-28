@@ -48,6 +48,7 @@ ul {
 
 .a-menu-item {
   color: white;
+  text-decoration: none;
 }
 
 .a-menu-item:hover {
