@@ -5,7 +5,9 @@
                 <span class="logo navbar-item"><a class="button" routerLink="/">Fuqua Acronyms</a></span> 
             </a>
         </li>
-        <li class="li-float-right navbar-item"><a (click)="newAcronym()">New Acronym</a></li> 
-        <li id="id-filter" class="li-float-right navbar-item"><a>Filter</a></li> 
+        @if (isAdmin()) {
+            <li class="li-float-right navbar-item"><a (click)="newAcronym()">New Acronym</a></li> 
+            <li id="id-filter" class="li-float-right navbar-item"><a>Filter</a></li> 
+        }
     </ul>
 </div>	

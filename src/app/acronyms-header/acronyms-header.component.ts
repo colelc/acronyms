@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-acronyms-header',
@@ -9,7 +10,13 @@ import { Component } from '@angular/core';
 })
 export class AcronymsHeaderComponent {
 
-  newAcronym() {
-    console.log("new acronym");
+  constructor(private userService:UserService){}
+
+  isAdmin = () => {
+    return this.userService.isUserAdmin();
+  }
+
+  newAcronym = () => {
+    console.log("new Acronym");
   }
 }
