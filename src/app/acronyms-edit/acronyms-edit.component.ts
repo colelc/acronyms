@@ -1,19 +1,20 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { Acronym } from '../interface/acronym-if';
 import { Saved } from '../interface/saved-if';
-import { NgFor } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { AcronymsService } from '../service/acronyms.service';
 
 @Component({
   selector: 'app-acronyms-edit',
   standalone: true,
-  imports: [NgFor, FormsModule],
-  providers: [AcronymsService],
+  imports: [FormsModule],
+  providers: [/*AcronymsService*/],
   templateUrl: './acronyms-edit.component.html',
   styleUrl: './acronyms-edit.component.css'
 })
 export class AcronymsEditComponent {
+
   acronyms: Acronym[] = [];
   saved: Saved[] = [];
   enableSaveIcon : string = "disabled-link";
