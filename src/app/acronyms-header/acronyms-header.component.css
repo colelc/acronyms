@@ -9,11 +9,9 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    /* background-color: #312797; */
     position: fixed;
     top: 0;
     width: 100%;
-    /* height: 4rem; */
     z-index: 9999;
   }
   
@@ -23,12 +21,15 @@ ul {
   
   .li-float-right {
     float: right;
-    /*font-size: 0.8rem;*/
+  }
+
+  .li-item {
+    padding-left: 2rem;
+    padding-top: 1.3rem;
   }
   
-  li a, li label {
+  .a-logo {
     display: block;
-    /*color: #ffe4b2;*/
     color: white;
     text-align: center;
     /* padding: 1rem 1.1rem; */
@@ -37,22 +38,18 @@ ul {
     padding-left: 1rem;
     padding-right: 1rem;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 2.5rem;
   }
   
-  li a:hover:not(.active) li label:hover:not(.active){
-    color: white;
+  .a-logo:hover {
     cursor: pointer;
   }
-  
-  .logo {
-      font-weight: bold;
-      /*font-size: 1.2rem;*/
-      /*color: #ffe4b2;*/
-      color: white;
-      font-size: 2.5rem;
-  }
 
-  .navbar-item:hover {
-      cursor: pointer;
-      color: white;
-  }
+.a-menu-item {
+  color: white;
+}
+
+.a-menu-item:hover {
+  cursor: pointer;
+}

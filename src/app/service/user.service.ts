@@ -6,7 +6,7 @@ export class UserService {
         dukeId: "lcc9",
         firstName: "Linda",
         lastName: "Cole",
-        isAdmin: false
+        isAdmin: true
     };
 
     constructor() {}

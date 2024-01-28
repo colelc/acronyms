@@ -1,13 +1,17 @@
 <div class="header-div">
     <ul>
         <li class="li-float-left">
-            <a id="id-home">
-                <span class="logo navbar-item"><a class="button" routerLink="/">Fuqua Acronyms</a></span> 
-            </a>
+            <a class="a-logo" routerLink="/">Fuqua Acronyms</a>
         </li>
         @if (isAdmin()) {
-            <li class="li-float-right navbar-item"><a (click)="newAcronym()">New Acronym</a></li> 
-            <li id="id-filter" class="li-float-right navbar-item"><a>Filter</a></li> 
+            <li class="li-item li-float-left">
+                <a class="a-menu-item" (click)="newAcronym()">New Acronym</a>
+            </li> 
         }
+
+        <li class="li-item li-float-left">
+            <a class="a-menu-item">Filter</a>
+        </li> 
+
     </ul>
 </div>	
