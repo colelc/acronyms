@@ -9,6 +9,8 @@ import { AcronymsFooterComponent } from './acronyms-footer/acronyms-footer.compo
 import { AcronymsAdminViewComponent } from './acronyms-admin-view/acronyms-admin-view.component';
 import { AcronymsUserViewComponent } from './acronyms-user-view/acronyms-user-view.component';
 import { AcronymsService } from './service/acronyms.service';
+import { User } from './interface/user-if';
+import { UserService } from './service/user.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +19,7 @@ import { AcronymsService } from './service/acronyms.service';
     AcronymsHeaderComponent, AcronymsListComponent, AcronymsFooterComponent, AcronymsEditComponent,
     AcronymsAdminViewComponent, AcronymsUserViewComponent
   ],
-  providers: [AcronymsService],
+  providers: [AcronymsService, UserService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   schemas: [/*CUSTOM_ELEMENTS_SCHEMA*/] // need this for PrimeNg to work
@@ -25,12 +27,11 @@ import { AcronymsService } from './service/acronyms.service';
 
 export class AppComponent implements OnInit {
 
-  constructor(private acronymsService: AcronymsService) {
+  constructor(private acronymsService: AcronymsService, private userService: UserService) {
   }
 
   isAdministrator = () => {
-    console.log("returning TRUE for administrator")
-    return true;
+    return this.userService.isUserAdmin();
   }
 
 

@@ -1,0 +1,27 @@
+
+.table-grid-acronyms {
+    display: grid;
+   grid-template-columns: 1fr 2fr 6fr 1fr 1.5fr 1fr;
+    row-gap: 0px;
+    column-gap: 0px;
+    margin: auto;
+    background-color: white;
+ }
+
+ .acronym-header {
+     position: sticky;
+     background-color: mediumblue;
+     text-align: left;
+     font-weight: bold;
+     font-size: 0.7rem;
+     color: white;
+     overflow-wrap: break-word;
+     padding-top: 0.4rem;
+     padding-bottom: 0.4rem;
+     padding-left: 0.8rem;
+     padding-right: 0.8rem;
+     border-bottom: 1px solid white;
+     border-right: 1px solid white;
+   }
+
+
