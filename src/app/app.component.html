@@ -1,11 +1,15 @@
 
 <app-acronyms-header></app-acronyms-header>
+<hr style="color: white;">
 
 @if (isAdministrator()) {
-  <app-acronyms-edit></app-acronyms-edit>
+  <app-acronyms-admin-view></app-acronyms-admin-view>
 } @else {
-  <app-acronyms-footer></app-acronyms-footer>
+  <app-acronyms-user-view></app-acronyms-user-view>
 }
 
-<!--<router-outlet></router-outlet>-->
+<app-acronyms-footer></app-acronyms-footer>
+
+
+<router-outlet></router-outlet>
 

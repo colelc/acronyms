@@ -1,24 +1,18 @@
-import { Component} from '@angular/core';
-
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AcronymsService } from '../service/acronyms.service';
+import { Acronym } from '../interface/acronym-if';
+import { Saved } from '../interface/saved-if';
+
 
 @Component({
-  selector: 'app-acronyms-edit',
+  selector: 'app-acronyms-admin-view',
   standalone: true,
   imports: [FormsModule],
   providers: [/*AcronymsService*/],
-  templateUrl: './acronyms-edit.component.html',
-  styleUrl: './acronyms-edit.component.css'
+  templateUrl: './acronyms-admin-view.component.html',
+  styleUrl: './acronyms-admin-view.component.css'
 })
-export class AcronymsEditComponent {
-
-  constructor(private acronymsService: AcronymsService) {
-  }
-
-}
-
-/*
 export class AcronymsAdminViewComponent {
 
   acronyms: Acronym[] = [];
@@ -84,4 +78,3 @@ export class AcronymsAdminViewComponent {
   }
 
 }
-*/

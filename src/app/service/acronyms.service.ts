@@ -6,13 +6,13 @@ export class AcronymsService {
     private acronyms: Acronym[] =  [
         {
           id: 1, 
-          acronym: "ABC", 
-          refersTo: "refersTo", 
-          definition: "definition", 
-          areaKey: "areaKey",
+          acronym: "BDW", 
+          refersTo: "Blue Devil Weekend", 
+          definition: "Weekend-long event for admitted students, organized by the Office of Admissions and student volunteers. There is a BDW in February and again in April to accommodate all admitted studentsâ€™ timelines. Admissions also hosts several other weekend events for prospective Daytime students in Fall. Also, the admitted studentsâ€™ weekend for the MMS and MQM programs is called Blue Devil Experience and for the EMBA programs is called Blue Devil Celebration.", 
+          areaKey: "Admissions",
           active: true,
           tags: [
-                {id: 1, tag: "Tag 1", active: true, 
+                {id: 1, tag: "Admissions", active: true, 
                 createdBy: "tagCBy", created: "tagC", lastUpdatedBy: "tagLuBy", lastUpdated: "tagLu"},
                 {id: 2, tag: "Tag 2", active: true, 
                 createdBy: "tagCBy", created: "tagC", lastUpdatedBy: "tagLuBy", lastUpdated: "tagLu"}

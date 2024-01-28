@@ -1,0 +1,34 @@
+
+<div class="table-grid-acronyms">
+    <div class="acronym-header"></div>
+    <div class="acronym-header acronym-header-center">Acronym</div>
+    <div class="acronym-header">Refers To</div>
+    <div class="acronym-header">Definition</div>
+    <div class="acronym-header">Area Key</div>
+    <div class="acronym-header">Tags</div>
+    <div class="acronym-header">Last Updated</div>
+
+    @for (a of acronyms; track a.id) {
+        <div class="acronym-data-cell item-center" >
+        <img src="assets/images/checkmark-16.png" class="acronym-image" [hidden]="getHidden(a.id)">
+
+        <a [class]="calculateSaveClass(a.id)" (click)="onSaveAcronym(a.id)" >
+            <img src="assets/images/save-outline-icon.png" class="acronym-image">
+        </a>
+
+        <span style="padding-left: 0.5rem;"></span>
+
+        <a class="enabled-link" (click)="onDeleteAcronym(a.id)" >
+            <img src="assets/images/deleteCase.jpg" class="acronym-image">
+        </a>
+        </div>
+
+        <div class="acronym-data-cell item-center" type="text">{{ a.acronym }}</div>
+        <div class="acronym-data-cell" type="text">{{ a.refersTo }}</div>
+        <div class="acronym-data-cell" type="text">{{ a.definition }}</div>
+        <div class="acronym-data-cell" type="text">{{ a.areaKey }}</div>
+        <div class="acronym-data-cell" type="text">{{ a.tagString }}</div>
+        <div class="acronym-data-cell item-center" type="text">{{ a.lastUpdatedBy }} {{ a.lastUpdated }}</div>
+    }
+ </div>
+
