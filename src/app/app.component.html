@@ -2,13 +2,29 @@
 <app-acronyms-header></app-acronyms-header>
 <hr style="color: white;">
 
-@if (isAdministrator()) {
+<!-- @if (administrator) {
   <app-acronyms-admin-view></app-acronyms-admin-view>
 } @else {
   <app-acronyms-user-view></app-acronyms-user-view>
-}
+} -->
+
+<!-- @if (administrator) {
+  <app-acronyms-admin-view></app-acronyms-admin-view>
+} @else {
+  <app-acronyms-user-view></app-acronyms-user-view>
+} -->
 
 <app-acronyms-footer></app-acronyms-footer>
 
+<router-outlet></router-outlet>
 
+<!-- <hr>
+
+<h1>Angular Router Sample</h1>-->
+<!-- <app-crisis-list></app-crisis-list>
+<app-heroes-list></app-heroes-list> -->
+<!--<nav>
+  <a class="button" routerLink="/crisis-list">Crisis Center</a> |
+  <a class="button" routerLink="/heroes-list">Heroes</a>
+</nav> -->
 

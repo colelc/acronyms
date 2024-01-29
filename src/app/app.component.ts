@@ -11,14 +11,24 @@ import { AcronymsUserViewComponent } from './acronyms-user-view/acronyms-user-vi
 import { AcronymsService } from './service/acronyms.service';
 import { UserService } from './service/user.service';
 
+import { Router } from '@angular/router'
+import { RouterOutlet } from '@angular/router';
+import { RouterLink } from '@angular/router';
+import { CrisisListComponent } from './crisis-list/crisis-list.component';
+import { HeroesListComponent } from './heroes-list/heroes-list.component';
+
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [ 
     AcronymsHeaderComponent, AcronymsListComponent, AcronymsFooterComponent, AcronymsEditComponent,
     AcronymsAdminViewComponent, AcronymsUserViewComponent
+
+    ,RouterOutlet
+    , RouterLink
+    , HeroesListComponent, CrisisListComponent
   ],
-  providers: [AcronymsService, UserService],
+  providers: [AcronymsService, UserService, Router],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   schemas: [/*CUSTOM_ELEMENTS_SCHEMA*/] // need this for PrimeNg to work
@@ -26,7 +36,11 @@ import { UserService } from './service/user.service';
 
 export class AppComponent implements OnInit {
 
-  constructor(private acronymsService: AcronymsService, private userService: UserService) {
+  administrator: boolean = false;
+
+  constructor(private acronymsService: AcronymsService, 
+    private userService: UserService,
+    private router: Router) {
   }
 
   isAdministrator = () => {
@@ -35,8 +49,15 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log("app ngOnInit");
+    this.administrator = this.userService.isUserAdmin();
 
+    if (this.administrator === true) {
+      console.log("ADMIN");
+      this.router.navigateByUrl("/admin-view");
+    } else {
+      console.log("USER");
+      this.router.navigateByUrl("/user-view");
+    }
   }
 
 

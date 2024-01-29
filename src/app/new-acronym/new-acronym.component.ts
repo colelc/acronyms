@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-new-acronym',
@@ -7,6 +8,10 @@ import { Component } from '@angular/core';
   templateUrl: './new-acronym.component.html',
   styleUrl: './new-acronym.component.css'
 })
-export class NewAcronymComponent {
+export class NewAcronymComponent implements OnInit {
+
+  ngOnInit(): void {
+    console.log("NewAcronym ngOnInit");
+  }
 
 }
