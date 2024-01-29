@@ -4,7 +4,6 @@ import { AcronymsService } from '../service/acronyms.service';
 import { Acronym } from '../interface/acronym-if';
 import { Saved } from '../interface/saved-if';
 
-
 @Component({
   selector: 'app-acronyms-admin-view',
   standalone: true,

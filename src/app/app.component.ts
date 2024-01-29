@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-//import { TableModule } from 'primeng/table'; 
-//import { ButtonModule } from 'primeng/button';
-import { AcronymsHeaderComponent } from './acronyms-header/acronyms-header.component';
+//import { AcronymsHeaderComponent } from './acronyms-header/acronyms-header.component';
 import { AcronymsListComponent } from './acronyms-list/acronyms-list.component';
 import { AcronymsEditComponent } from './acronyms-edit/acronyms-edit.component';
 import { AcronymsFooterComponent } from './acronyms-footer/acronyms-footer.component';
@@ -21,9 +20,9 @@ import { HeroesListComponent } from './heroes-list/heroes-list.component';
   selector: 'app-home',
   standalone: true,
   imports: [ 
-    AcronymsHeaderComponent, AcronymsListComponent, AcronymsFooterComponent, AcronymsEditComponent,
+   /* AcronymsHeaderComponent, */AcronymsListComponent, AcronymsFooterComponent, AcronymsEditComponent,
     AcronymsAdminViewComponent, AcronymsUserViewComponent
-
+    , FormsModule
     ,RouterOutlet
     , RouterLink
     , HeroesListComponent, CrisisListComponent
@@ -37,6 +36,7 @@ import { HeroesListComponent } from './heroes-list/heroes-list.component';
 export class AppComponent implements OnInit {
 
   administrator: boolean = false;
+  filterTerm: string = "";
 
   constructor(private acronymsService: AcronymsService, 
     private userService: UserService,
@@ -47,8 +47,11 @@ export class AppComponent implements OnInit {
     return this.userService.isUserAdmin();
   }
 
+  onKeyupFilter = () => {
+    console.log("onkeyup filter: filterTerm = " + this.filterTerm);
+  }
 
-  ngOnInit() {
+  home() {
     this.administrator = this.userService.isUserAdmin();
 
     if (this.administrator === true) {
@@ -58,6 +61,19 @@ export class AppComponent implements OnInit {
       console.log("USER");
       this.router.navigateByUrl("/user-view");
     }
+  }
+
+  ngOnInit() {
+    this.home();
+    // this.administrator = this.userService.isUserAdmin();
+
+    // if (this.administrator === true) {
+    //   console.log("ADMIN");
+    //   this.router.navigateByUrl("/admin-view");
+    // } else {
+    //   console.log("USER");
+    //   this.router.navigateByUrl("/user-view");
+    // }
   }
 
 
