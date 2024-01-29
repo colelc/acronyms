@@ -56,24 +56,15 @@ export class AppComponent implements OnInit {
 
     if (this.administrator === true) {
       console.log("ADMIN");
-      this.router.navigateByUrl("/admin-view");
+      this.router.navigateByUrl("/admin");
     } else {
       console.log("USER");
-      this.router.navigateByUrl("/user-view");
+      this.router.navigateByUrl("/view");
     }
   }
 
   ngOnInit() {
     this.home();
-    // this.administrator = this.userService.isUserAdmin();
-
-    // if (this.administrator === true) {
-    //   console.log("ADMIN");
-    //   this.router.navigateByUrl("/admin-view");
-    // } else {
-    //   console.log("USER");
-    //   this.router.navigateByUrl("/user-view");
-    // }
   }
 
 

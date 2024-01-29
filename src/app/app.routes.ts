@@ -11,18 +11,16 @@ import { AppComponent } from './app.component';
 export const routes: Routes = [
     // {
     //     path: "", 
-    //    component: AppComponent
-    //    //redirectTo: "",
-    //    //pathMatch: "full"
+    //     redirectTo: "",
+    //     pathMatch: "full"
     // },
     {
-        path: "admin-view", 
+        path: "admin", 
         component: AcronymsAdminViewComponent
     }, // admin list view: extra column for edit (new page opens, a form)
     {
-        path: "user-view", 
-       // component: AcronymsUserViewComponent
-       component: AppComponent
+        path: "view", 
+       component: AcronymsUserViewComponent
     }, // user list view - all read-only
     {
         path: "new-acronym", 
@@ -32,12 +30,8 @@ export const routes: Routes = [
         path: "edit", 
         component: AcronymsEditComponent
     },
-
-    // {path: 'crisis-list', component: CrisisListComponent},
     {
         path: "**",
         component: PageNotFoundComponent 
-        // quirky here.  I've set up my PageNotFound html to be blank.
-        // Come back and fix this later, when you understand routing better.
      }
 ];
