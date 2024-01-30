@@ -12,12 +12,14 @@ import { Acronym } from '../interface/acronym-if';
   styleUrl: './new-acronym.component.css'
 })
 export class NewAcronymComponent implements OnInit {
-  // private acronyms: Acronym[] =  [
   acronym: Acronym;
+  status: string = "Start typing!"
+  messageStatusClass : string = "input-box-status";
+  submitButtonClass: string = "submit-button-disabled";
 
   constructor() {
     this.acronym = {
-        id: 35, 
+        id: 0, 
         acronym: "", 
         refersTo: "", 
         definition: "",
@@ -30,6 +32,31 @@ export class NewAcronymComponent implements OnInit {
         lastUpdatedBy: "",
         lastUpdated: ""
     }
+  }
+
+  onKeyUp = () => {
+    if (this.acronym.acronym.length > 0  
+      || this.acronym.definition.length > 0
+      || this.acronym.areaKey.length > 0
+      || this.acronym.refersTo.length > 0) {
+         this.status = "Working ...";
+      }
+
+    if (this.acronym.acronym.length > 1  
+      && this.acronym.definition.length > 0
+      && this.acronym.areaKey.length > 0
+      && this.acronym.refersTo.length > 0) {
+        this.submitButtonClass = "submit-button";
+        this.status = "Ready";
+        this.messageStatusClass = "input-box-status-ready";
+      } else {
+        this.submitButtonClass = "submit-button-disabled";
+        this.messageStatusClass = "input-box-status";
+      }
+  }
+
+  onClick = () => {
+    console.log("onClick", this.acronym);
   }
 
   ngOnInit(): void {
