@@ -8,7 +8,7 @@ import { Saved } from '../interface/saved-if';
   selector: 'app-acronyms-admin-view',
   standalone: true,
   imports: [FormsModule],
-  providers: [/*AcronymsService*/],
+  providers: [],
   templateUrl: './acronyms-admin-view.component.html',
   styleUrl: './acronyms-admin-view.component.css'
 })
@@ -29,8 +29,8 @@ export class AcronymsAdminViewComponent {
     }
   }
 
-  calculateSaveClass = (id: number) => {
-    //console.log("calculateSaveClass for id = " + id);
+  calculateEditClass = (id: number) => {
+    //console.log("calculateEditClass for id = " + id);
     const a = this.acronymsService.getAcronymById(id);
     if (a !== null) {
       if (a.acronym.length < 2  ||  a.refersTo.length === 0  ||  a.definition.length === 0  ||  a.areaKey.length === 0) {
@@ -42,8 +42,8 @@ export class AcronymsAdminViewComponent {
     return "disabled-link";
   }
 
-  onSaveAcronym = ( id: number) => {
-    console.log("onSaveAcronym: id is " + id);
+  onEditAcronym = ( id: number) => {
+    console.log("onEditAcronym: id is " + id);
 
     // add code to actually save the record
 

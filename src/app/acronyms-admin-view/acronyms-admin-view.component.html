@@ -12,7 +12,7 @@
         <div [class]="calculateStriping($even)" >
         <img src="assets/images/checkmark-16.png" class="acronym-image" [hidden]="getHidden(a.id)">
 
-        <a [class]="calculateSaveClass(a.id)" (click)="onSaveAcronym(a.id)" >
+        <a [class]="calculateEditClass(a.id)" (click)="onEditAcronym(a.id)" >
             <img src="assets/images/save-outline-icon.png" class="acronym-image">
         </a>
 
