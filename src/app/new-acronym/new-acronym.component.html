@@ -1,30 +1,28 @@
 
-		<div>
-            <form class="acronym-form">
-                <label for="acronyn-name">Acronym</label>
-                <input type="text" name="acronym-name" size="10" class="input-box" required [(ngModel)]="acronym.acronym" >
+<div>
+    <form class="acronym-form">
+        <label for="acronyn-name">Acronym</label>
+        <input type="text" name="acronym-name" size="10" class="input-box" required [(ngModel)]="acronym.acronym" >
 
-                <label for="refers-to-name">Refers To</label>
-                <input type="text" name="refers-to-name"  class="input-box" required [(ngModel)]="acronym.refersTo">
+        <label for="refers-to-name">Refers To</label>
+        <input type="text" name="refers-to-name"  class="input-box" required [(ngModel)]="acronym.refersTo">
 
-                <label for="definition-name">Definition</label>
-                <textarea name="definition-name" rows="8" maxlength="4096"  class="input-box" [(ngModel)]="acronym.definition"></textarea>
-                
-                <label for="area-key-name">Area Key</label>
-                <input type="text" name="area-key-name"  class="input-box" required>
-                
-                <label for="tag-name">Tags</label>
-                <input type="text" name="tag-name"  class="input-box" placeholder="(Use comma to delimit multiple tags)">
+        <label for="definition-name">Definition</label>
+        <textarea name="definition-name" rows="8" maxlength="4096"  class="input-box" [(ngModel)]="acronym.definition"></textarea>
+        
+        <label for="area-key-name">Area Key</label>
+        <input type="text" name="area-key-name"  class="input-box" required>
+        
+        <label for="tag-name">Tags</label>
+        <input type="text" name="tag-name"  class="input-box" placeholder="(Use comma to delimit multiple tags)">
 
-                <button class="submit-button">Submit</button>
+        <button class="submit-button">Submit</button>
 
-                <label for="message-name"></label>
-                <input type="text" name="message-name"  class="input-box" readonly value="message">
-            </form>
+        <label for="message-name">Status</label>
+        <input type="text" name="message-name" class="input-box input-box-status" readonly value="Some status">
 
-<!-- 
-                    <div class="form-span submit-button-div">
-                        <a  class="submit-button">Submit Nomination</a>
-                    </div> -->
+    </form>
+</div>
+
 
 	
