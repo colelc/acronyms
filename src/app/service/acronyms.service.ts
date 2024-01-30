@@ -1,6 +1,9 @@
+import { Injectable } from "@angular/core";
 import { Acronym } from "../interface/acronym-if";
 import { Tag } from "../interface/tag-if";
+import { HttpService } from "./http.service";
 
+@Injectable({providedIn: "root"})
 export class AcronymsService {
 
     private acronyms: Acronym[] =  [
@@ -63,7 +66,9 @@ export class AcronymsService {
         }
     ];
 
-    constructor() {}
+    constructor(private httpService: HttpService) {
+
+    }
 
     getAcronyms = () => {
         // by slicing, this method returns a new array which will always have
@@ -84,37 +89,59 @@ export class AcronymsService {
         console.log("setAcronym: id = " + id + " acronym = " + acronym);
     }
 
-    initializeNewAcronym = () => {
-      console.log("initialize new acronym");
-      const a = {} as Acronym;
-      a.id = 0;
-      a.acronym = "";
-      a.refersTo = "Refers To";
-      a.definition = "Definition";
-      a.areaKey = "Area Key";
-      a.active = true;
+    initAcronym = () => {
+      return {
+        id: 0, 
+        acronym: "", 
+        refersTo: "", 
+        definition: "",
+        areaKey: "",
+        active: true,
+        tags: [],
+        tagString: "",
+        createdBy: "",
+        created: "",
+        lastUpdatedBy: "",
+        lastUpdated: ""
+      }
+    }
 
-      const t = {} as Tag;
-      a.tags = [t];
-      a.tagString = "";
+    // initializeNewAcronym = () => {
+    //   console.log("initialize new acronym");
+    //   const a = {} as Acronym;
+    //   a.id = 0;
+    //   a.acronym = "";
+    //   a.refersTo = "Refers To";
+    //   a.definition = "Definition";
+    //   a.areaKey = "Area Key";
+    //   a.active = true;
+
+    //   const t = {} as Tag;
+    //   a.tags = [t];
+    //   a.tagString = "";
       
-      a.created = "";
-      a.createdBy = "";
-      a.lastUpdated = "";
-      a.lastUpdatedBy = "";
+    //   a.created = "";
+    //   a.createdBy = "";
+    //   a.lastUpdated = "";
+    //   a.lastUpdatedBy = "";
 
-      const newAcronymList: Acronym[] = [];
-      newAcronymList.push(a);
+    //   const newAcronymList: Acronym[] = [];
+    //   newAcronymList.push(a);
 
-      for (let a of this.acronyms) {
-        newAcronymList.push(a);
-      }
+    //   for (let a of this.acronyms) {
+    //     newAcronymList.push(a);
+    //   }
 
-      this.acronyms = [...newAcronymList];
+    //   this.acronyms = [...newAcronymList];
 
-      for (let a of this.acronyms) {
-        console.log(a);
-      }
+    //   for (let a of this.acronyms) {
+    //     console.log(a);
+    //   }
+    // }
+
+    addAcronym = (newAcronym:Acronym) => {
+      console.log("addAcronym: ", newAcronym);
+      this.httpService.addAcronym(newAcronym);
     }
 
 }

@@ -9,6 +9,7 @@ import { AcronymsAdminViewComponent } from './acronyms-admin-view/acronyms-admin
 import { AcronymsUserViewComponent } from './acronyms-user-view/acronyms-user-view.component';
 import { AcronymsService } from './service/acronyms.service';
 import { UserService } from './service/user.service';
+import { HttpService } from './service/http.service';
 
 import { Router } from '@angular/router'
 import { RouterOutlet } from '@angular/router';
@@ -20,14 +21,14 @@ import { HeroesListComponent } from './heroes-list/heroes-list.component';
   selector: 'app-home',
   standalone: true,
   imports: [ 
-   /* AcronymsHeaderComponent, */AcronymsListComponent, AcronymsFooterComponent, AcronymsEditComponent,
+    AcronymsListComponent, AcronymsFooterComponent, AcronymsEditComponent,
     AcronymsAdminViewComponent, AcronymsUserViewComponent
     , FormsModule
     ,RouterOutlet
     , RouterLink
     , HeroesListComponent, CrisisListComponent
   ],
-  providers: [AcronymsService, UserService, Router],
+  providers: [AcronymsService, UserService, HttpService, Router],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   schemas: [/*CUSTOM_ELEMENTS_SCHEMA*/] // need this for PrimeNg to work

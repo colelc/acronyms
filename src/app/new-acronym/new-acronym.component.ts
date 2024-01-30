@@ -1,66 +1,70 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AcronymsAdminViewComponent } from '../acronyms-admin-view/acronyms-admin-view.component';
+
 import { Acronym } from '../interface/acronym-if';
+import { AcronymsService } from '../service/acronyms.service';
 
 @Component({
   selector: 'app-new-acronym',
   standalone: true,
   imports: [FormsModule],
+  providers: [],
   templateUrl: './new-acronym.component.html',
   styleUrl: './new-acronym.component.css'
 })
 export class NewAcronymComponent implements OnInit {
   acronym: Acronym;
-  status: string = "Start typing!"
-  messageStatusClass : string = "input-box-status";
-  submitButtonClass: string = "submit-button-disabled";
+  status: string = "";
+  messageStatusClass : string = "";
+  submitButtonClass: string = "";
 
-  constructor() {
-    this.acronym = {
-        id: 0, 
-        acronym: "", 
-        refersTo: "", 
-        definition: "",
-        areaKey: "",
-        active: true,
-        tags: [],
-        tagString: "",
-        createdBy: "",
-        created: "",
-        lastUpdatedBy: "",
-        lastUpdated: ""
-    }
+  constructor(private acronymsService: AcronymsService) {
+    this.acronym = this.initAcronym();
+    this.disableElements();
+  }
+
+  private initAcronym = () => {
+    return this.acronymsService.initAcronym();
+  }
+
+  private disableElements = () => {
+    this.status = "Not ready";
+    this.messageStatusClass = "input-box-status";
+    this.submitButtonClass = "submit-button-disabled";
+  }
+
+  private enableElements = () => {
+    this.status = "Ready";
+    this.messageStatusClass = "input-box-status-ready";
+    this.submitButtonClass = "submit-button";
   }
 
   onKeyUp = () => {
-    if (this.acronym.acronym.length > 0  
-      || this.acronym.definition.length > 0
-      || this.acronym.areaKey.length > 0
-      || this.acronym.refersTo.length > 0) {
-         this.status = "Working ...";
-      }
-
     if (this.acronym.acronym.length > 1  
       && this.acronym.definition.length > 0
       && this.acronym.areaKey.length > 0
       && this.acronym.refersTo.length > 0) {
-        this.submitButtonClass = "submit-button";
-        this.status = "Ready";
-        this.messageStatusClass = "input-box-status-ready";
+        this.enableElements();
       } else {
-        this.submitButtonClass = "submit-button-disabled";
-        this.messageStatusClass = "input-box-status";
+        this.disableElements();
       }
   }
 
   onClick = () => {
-    console.log("onClick", this.acronym);
+    this.acronymsService.addAcronym(this.acronym);
+
+    // clear out fields
+    this.acronym = this.initAcronym();
+
+    // re-disable the submit button
+    this.disableElements();
+
+    // show success message
+    this.status = "Acronym " + this.acronym.acronym + " has been added ";
   }
 
   ngOnInit(): void {
-    console.log("NewAcronym ngOnInit");
   }
 
 }
