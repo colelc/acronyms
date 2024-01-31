@@ -8,12 +8,23 @@ import { Observable } from "rxjs";
 export class AcronymsService implements OnInit {
 
   private acronyms: Acronym[] =  [ ];
+  //private x = new Array<Acronym>();
 
   constructor(private httpService: HttpService) {
 
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.acronyms = this.httpService.getTestData();
+
+  //   this.httpService.getAcronyms()
+  //     .subscribe(response => {
+  //      // console.log("response", response);
+  //       this.acronyms = response.map(a => {
+  //         return new Acronym
+  //       })
+  //     })
+   }
 
   getAcronyms = () => {
       // by slicing, this method returns a new array which will always have

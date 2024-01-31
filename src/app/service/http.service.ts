@@ -26,15 +26,17 @@ export class HttpService {
     }
 
     // GET
-    getAcronyms = ():Acronym[] => {
-        // console.log("HttpService.getAcronyms");
+    getAcronyms = ():Observable<Object> => {
+         console.log("HttpService.getAcronyms");
         // this.http.get<Acronym[]>("something.json")
         // .pipe(map(data => _.values(data)))
         // .subscribe(response => {
         //     console.log("response", response);
         // });
         // return [];
-        return this.getTestData();
+
+       return this.http.get(ConfigService.URL_GET_ACRONYM);
+
     }
 
     getTestData = ():Acronym[] => {
