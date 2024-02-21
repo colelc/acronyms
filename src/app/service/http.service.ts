@@ -1,10 +1,7 @@
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { Acronym } from "../interface/acronym-if";
 import { HttpClient } from "@angular/common/http";
-import { map } from "rxjs/operators";
+import { Injectable } from "@angular/core";
+import { Acronym } from "../interface/acronym-if";
 import { ConfigService } from "./config.service";
-import * as _ from "lodash";
 
 @Injectable({providedIn: "root"})
 export class HttpService {
@@ -26,7 +23,7 @@ export class HttpService {
     }
 
     // GET
-    getAcronyms = ():Observable<Object> => {
+    getAcronyms = ():Acronym[] => {
          console.log("HttpService.getAcronyms");
         // this.http.get<Acronym[]>("something.json")
         // .pipe(map(data => _.values(data)))
@@ -35,7 +32,8 @@ export class HttpService {
         // });
         // return [];
 
-       return this.http.get(ConfigService.URL_GET_ACRONYM);
+       //return this.http.get(ConfigService.URL_GET_ACRONYM);
+       return this.getTestData();
 
     }
 

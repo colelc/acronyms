@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { Acronym } from '../interface/acronym-if';
@@ -35,12 +34,14 @@ export class NewAcronymComponent implements OnInit {
   }
 
   private enableElements = () => {
+    console.log("enabling elements");
     this.status = "Ready";
     this.messageStatusClass = "input-box-status-ready";
     this.submitButtonClass = "submit-button";
   }
 
   onKeyUp = () => {
+    console.log("onkeyup", this.acronym);
     if (this.acronym.acronym.length > 1  
       && this.acronym.definition.length > 0
       && this.acronym.areaKey.length > 0
@@ -52,7 +53,8 @@ export class NewAcronymComponent implements OnInit {
   }
 
   onClick = () => {
-    this.acronymsService.addAcronym(this.acronym);
+
+   this.acronymsService.addAcronym(this.acronym);
 
     // clear out fields
     this.acronym = this.initAcronym();
